@@ -83,6 +83,26 @@ test('render() youtube iframe custom width & height', t => {
   t.is(actual, expected);
 });
 
+test('render() vimeo iframe', t => {
+  const actual = render({
+    type: 'vimeo',
+    id: '270821275'
+  });
+  const expected = '<iframe src="https://player.vimeo.com/video/270821275" width="640" height="360" frameborder="0" allowfullscreen="true"></iframe>';
+  t.is(actual, expected);
+});
+
+test('render() vimeo iframe custom width & height', t => {
+  const actual = render({
+    type: 'vimeo',
+    id: '270821275',
+    width: 800,
+    height: 600
+  });
+  const expected = '<iframe src="https://player.vimeo.com/video/270821275" width="800" height="600" frameborder="0" allowfullscreen="true"></iframe>';
+  t.is(actual, expected);
+});
+
 test('render() tweet - normal', t => {
   const input = {
     type: 'twitter',

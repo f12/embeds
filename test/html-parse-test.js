@@ -171,6 +171,16 @@ test('parse() youtube embedly iframe', t => {
   t.deepEqual(actual, expected);
 });
 
+test('parse() vimeo iframe', t => {
+  const input = `<iframe src="https://player.vimeo.com/video/270821275?app_id=122963"></iframe>`;
+  const actual = parse(input);
+  const expected = {
+    type: 'vimeo',
+    id: '270821275'
+  };
+  t.deepEqual(actual, expected);
+});
+
 test('parse() tweet - normal', t => {
   const input = `<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">GIF vs. JIF… This <a href="https://t.co/qFAHWgdbL6">pic.twitter.com/qFAHWgdbL6</a></p>&mdash; Matt (foo) Navarra (@MattNavarra) <a href="https://twitter.com/MattNavarra/status/684690494841028608">January 6, 2016</a></blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>`;
   const actual = parse(input);
