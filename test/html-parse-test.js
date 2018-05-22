@@ -181,6 +181,16 @@ test('parse() vimeo iframe', t => {
   t.deepEqual(actual, expected);
 });
 
+test('parse() giphy iframe', t => {
+  const input = `<iframe src="//giphy.com/embed/xUPGcg8CcKXJoJAQQE?html5=true" frameBorder="0" class="giphy-embed" width="480" height="260" allowFullScreen></iframe>`;
+  const actual = parse(input);
+  const expected = {
+    type: 'giphy',
+    id: 'xUPGcg8CcKXJoJAQQE'
+  };
+  t.deepEqual(actual, expected);
+});
+
 test('parse() tweet - normal', t => {
   const input = `<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">GIF vs. JIF… This <a href="https://t.co/qFAHWgdbL6">pic.twitter.com/qFAHWgdbL6</a></p>&mdash; Matt (foo) Navarra (@MattNavarra) <a href="https://twitter.com/MattNavarra/status/684690494841028608">January 6, 2016</a></blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>`;
   const actual = parse(input);
